@@ -30,21 +30,21 @@ function App() {
   return (
     <div className="App">
       {isAuthenticated ? (
-        <div>
+        <div className="card">
           <div>
             <img src={user?.profilePictureUrl} alt={user?.name} />
           </div>
-          <div>
-            <span className="heading">Logged in as: {user?.name}</span>
+          <div className="detail">
+            <span className="heading">Name: {user?.name}</span>
+            <span className="heading">Email: {user?.email}</span>
           </div>
-          <div>
-            <button className="button" onClick={() => alert(user.accessToken)}>
-              What is my access token?
-            </button>
-          </div>
+
           <div>
             <button className="button" onClick={() => logout()}>
               Click to logout
+            </button>
+            <button className="button" onClick={handleClick}>
+              View Full Profile
             </button>
           </div>
         </div>
@@ -55,9 +55,6 @@ function App() {
           </button>
         </div>
       )}
-      <button className="button" onClick={handleClick}>
-        View Full Profile
-      </button>
     </div>
   );
 }
